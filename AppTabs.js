@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {MaterialIcons} from '@expo/vector-icons'
 
 
@@ -8,45 +8,45 @@ import DetailsScreen from './screens/DetailsScreen';
 import AboutScreen from './screens/AboutScreen';
 import ProductScreen from './screens/ProductScreen';
 
-const Drawer = createDrawerNavigator()
+const Tab = createBottomTabNavigator()
 
-export default function App(){
+export default function AppTabs(){
   return(
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName='Home'>
-        <Drawer.Screen name='Home' 
+      <Tab.Navigator initialRouteName='Home'>
+        <Tab.Screen name='Home' 
         component={HomeScreen} 
         options={{
           title: 'Início',
-          drawerIcon:({color, size}) => (
+          tabBarIcon:({color, size}) => (
             <MaterialIcons name='home' color={color} size={size}/>
           )
         }}/>
-        <Drawer.Screen name='Details'
+        <Tab.Screen name='Details'
          component={DetailsScreen} 
          options={{
           title: 'Detalhes',
-          drawerIcon:({color, size}) => (
+          tabBarIcon:({color, size}) => (
             <MaterialIcons name='airplanemode-active' color={color} size={size}/>
           )
         }}/>
-        <Drawer.Screen name='About' 
+        <Tab.Screen name='About' 
         component={AboutScreen} 
         options={{
           title: 'Sobre',
-          drawerIcon:({color, size}) => (
+          tabBarIcon:({color, size}) => (
             <MaterialIcons name='assistant' color={color} size={size}/>
           )
         }}/>
-        <Drawer.Screen name='Product'
+        <Tab.Screen name='Product'
         component={ProductScreen}
         options={{
           title: 'Produtos',
-          drawerIcon:({color, size}) => (
+          tabBarIcon:({color, size}) => (
             <MaterialIcons name='propane-tank' color={color} size={size}/>
           )
         }}/>
-      </Drawer.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }
